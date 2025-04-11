@@ -38,6 +38,91 @@ Lancez l'application:
 - Quand un grain est récolté, il rapporte deux fois la somme qu'il a coûté.
 - Possibilité de créer des assemblages de kafé (minimum 1kg)
 
+## Script SQL pour ajout en BDD
+
+`
+CREATE TABLE Farm (
+    id VARCHAR(255) PRIMARY KEY,
+    farmName VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE AppUser (
+    id VARCHAR(255) PRIMARY KEY,
+    firstName VARCHAR(255) NOT NULL,
+    lastName VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    deeVee INT DEFAULT 0,
+    goldGrains INT DEFAULT 0,
+    farmId VARCHAR(255),
+    FOREIGN KEY (farmId) REFERENCES Farm(id) ON DELETE SET NULL
+);
+
+CREATE TABLE Field (
+    id VARCHAR(255) PRIMARY KEY,
+    capacity INT DEFAULT 4,
+    farmId VARCHAR(255),
+    specialty VARCHAR(255) DEFAULT 'Neutre',
+    FOREIGN KEY (farmId) REFERENCES Farm(id) ON DELETE CASCADE
+);
+
+CREATE TABLE CoffeeType (
+    id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    growthTime INT DEFAULT 0,
+    cost INT DEFAULT 0,
+    weight DOUBLE DEFAULT 0,
+    taste INT DEFAULT 0,
+    bitterness INT DEFAULT 0,
+    content INT DEFAULT 0,
+    smell INT DEFAULT 0,
+    avatarUrl VARCHAR(255) DEFAULT ''
+);
+
+CREATE TABLE CoffeePlant (
+    id VARCHAR(255) PRIMARY KEY,
+    typeId VARCHAR(255),
+    plantingTime DATETIME,
+    harvestTime DATETIME,
+    fieldId VARCHAR(255),
+    userId VARCHAR(255),
+    FOREIGN KEY (typeId) REFERENCES CoffeeType(id) ON DELETE CASCADE,
+    FOREIGN KEY (fieldId) REFERENCES Field(id) ON DELETE CASCADE,
+    FOREIGN KEY (userId) REFERENCES AppUser(id) ON DELETE CASCADE
+);
+
+CREATE TABLE DriedCoffee (
+    id VARCHAR(255) PRIMARY KEY,
+    typeId VARCHAR(255),
+    weight DOUBLE DEFAULT 0,
+    userId VARCHAR(255),
+    FOREIGN KEY (typeId) REFERENCES CoffeeType(id) ON DELETE CASCADE,
+    FOREIGN KEY (userId) REFERENCES AppUser(id) ON DELETE CASCADE
+);
+
+CREATE TABLE Blend (
+    id VARCHAR(255) PRIMARY KEY,
+    userId VARCHAR(255),
+    totalWeight DOUBLE DEFAULT 0,
+    taste DOUBLE DEFAULT 0,
+    bitterness DOUBLE DEFAULT 0,
+    content DOUBLE DEFAULT 0,
+    smell DOUBLE DEFAULT 0,
+    submitted BOOLEAN DEFAULT FALSE,
+    submissionDate DATETIME,
+    FOREIGN KEY (userId) REFERENCES AppUser(id) ON DELETE CASCADE
+);
+
+CREATE TABLE BlendComponents (
+    blendId VARCHAR(255),
+    coffeeTypeId VARCHAR(255),
+    weight DOUBLE DEFAULT 0,
+    PRIMARY KEY (blendId, coffeeTypeId),
+    FOREIGN KEY (blendId) REFERENCES Blend(id) ON DELETE CASCADE,
+    FOREIGN KEY (coffeeTypeId) REFERENCES CoffeeType(id) ON DELETE CASCADE
+);
+
+`
+
 ## MCD
 
 [Lien vers le MCD](mcd.png)
