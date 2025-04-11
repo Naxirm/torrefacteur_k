@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "501604645957",
+    "project_id": "new-le-torrefacteur-k",
+    "storage_bucket": "new-le-torrefacteur-k.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:501604645957:android:fa12e41e5c80fa521a772c",
+        "android_client_info": {
+          "package_name": "com.example.new_torrefacteur_k"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb6l4QWclO15wDyZoQx8jCxM4hb-tZnZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
