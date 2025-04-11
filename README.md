@@ -14,7 +14,7 @@ Lien vers le Github: https://github.com/Naxirm/torrefacteur_k/
 ## Lancement du projet
 
 Commencez par cloner le projet:
-- https://github.com/Naxirm/torrefacteur_k.git
+- `git clone https://github.com/Naxirm/torrefacteur_k.git`
 
 A la racine du projet, installez les dépendances:
 - `flutter pub get`
