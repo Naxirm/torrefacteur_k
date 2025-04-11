@@ -1,6 +1,6 @@
 # Le Torréfacteur K
 
-Lien vers le Github: https://github.com/Naxirm/torrefacteur_k/
+[Lien vers le Github](https://github.com/Naxirm/torrefacteur_k/)
 
 <div align="center">
   <img src="lib/assets/torrefacteur_logo.png" alt="logo_torrefacteur" title="logo_torrefacteur" width="400" height="400" />
