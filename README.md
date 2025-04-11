@@ -33,6 +33,11 @@ Lancez l'application:
 
 ## Fonctionnalités du projet
 - Connexion / Inscription
-- Plantation des différentes graines de kafé et sélection du champ sur lequel planter (chaque champ a une spécificité, rendementx2, temps/2 ou neutre)
-- Récolte des grains plantés (avec décompte de temps et malus appliqué sur le rendement en fonction du temps écoulé)
-- Quand un grain est récolté, il rapport autant de 
+- Plantation des différentes graines de kafé et sélection du champ sur lequel planter (chaque champ a une spécificité, rendementx2, temps/2 ou neutre).
+- Récolte des grains plantés (avec décompte de temps et malus appliqué sur le rendement en fonction du temps écoulé).
+- Quand un grain est récolté, il rapporte deux fois la somme qu'il a coûté.
+- Possibilité de créer des assemblages de kafé (minimum 1kg)
+
+## MCD
+
+
