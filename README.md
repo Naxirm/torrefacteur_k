@@ -34,4 +34,4 @@ lib/
 
 ## Maquettes du projet
 
-[Lien vers les maquettes du projet]("maquettes.pdf")
+[Lien vers les maquettes du projet](maquettes.pdf)
