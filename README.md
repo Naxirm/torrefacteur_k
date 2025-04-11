@@ -40,7 +40,7 @@ Lancez l'application:
 
 ## Script SQL pour ajout en BDD
 
-`
+```sql
 CREATE TABLE Farm (
     id VARCHAR(255) PRIMARY KEY,
     farmName VARCHAR(255) NOT NULL
@@ -120,8 +120,7 @@ CREATE TABLE BlendComponents (
     FOREIGN KEY (blendId) REFERENCES Blend(id) ON DELETE CASCADE,
     FOREIGN KEY (coffeeTypeId) REFERENCES CoffeeType(id) ON DELETE CASCADE
 );
-
-`
+```
 
 ## MCD
 
