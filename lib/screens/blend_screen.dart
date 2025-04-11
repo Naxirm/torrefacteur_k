@@ -45,7 +45,6 @@ class _BlendScreenState extends State<BlendScreen> {
 
             final driedCoffee = snapshot.data!;
 
-            // Regrouper par type et sommer les poids
             final Map<String, DriedCoffee> uniqueTypes = {};
             for (final coffee in driedCoffee) {
               if (uniqueTypes.containsKey(coffee.type.id)) {
@@ -75,8 +74,7 @@ class _BlendScreenState extends State<BlendScreen> {
                         itemCount: filteredCoffee.length,
                         itemBuilder: (context, index) {
                           final coffee = filteredCoffee[index];
-                          final unitWeight =
-                              coffee.type.weight * 1000; // Poids en grammes
+                          final unitWeight = coffee.type.weight * 1000;
                           final selectedAmount =
                               blendComponents[coffee.type.id] ?? 0;
 
@@ -116,7 +114,7 @@ class _BlendScreenState extends State<BlendScreen> {
                                         : null,
                                   ),
                                   Text(
-                                    '$selectedAmount', // Affiche la quantité en unités
+                                    '$selectedAmount',
                                     style: const TextStyle(
                                         color: Color(0xFFE6B17E)),
                                   ),
@@ -148,8 +146,6 @@ class _BlendScreenState extends State<BlendScreen> {
                     },
                   ),
                 ),
-
-                // Composition actuelle
                 ValueListenableBuilder<Map<String, int>>(
                   valueListenable: _blendComponentsNotifier,
                   builder: (context, blendComponents, _) {
@@ -187,7 +183,6 @@ class _BlendScreenState extends State<BlendScreen> {
                     );
                   },
                 ),
-
                 const SizedBox(height: 12),
                 ValueListenableBuilder<double>(
                   valueListenable: _totalWeightNotifier,
@@ -199,7 +194,6 @@ class _BlendScreenState extends State<BlendScreen> {
                     );
                   },
                 ),
-
                 const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -238,10 +232,8 @@ class _BlendScreenState extends State<BlendScreen> {
                                         .createBlend(
                                       userId: user.id,
                                       components: blendComponents.map(
-                                          (key, value) => MapEntry(
-                                              key,
-                                              value
-                                                  .toDouble())), // Conversion en double
+                                          (key, value) =>
+                                              MapEntry(key, value.toDouble())),
                                       totalWeight: total,
                                       taste: taste,
                                       bitterness: bitterness,

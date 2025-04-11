@@ -47,7 +47,6 @@ class AuthService {
     try {
       print('Début de l\'inscription...');
 
-      // 1. Création du compte Firebase Auth
       final UserCredential result = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
@@ -56,7 +55,6 @@ class AuthService {
 
       final String userId = result.user!.uid;
 
-      // 2. Création du document utilisateur dans Firestore
       print('Création du document utilisateur...');
       await _firestoreService.createUser(
         userId: userId,
@@ -66,7 +64,6 @@ class AuthService {
       );
       print('Document utilisateur créé');
 
-      // 3. Récupération des données
       print('Récupération des données utilisateur...');
       final user = await _firestoreService.getUserFromFirestore(userId);
 

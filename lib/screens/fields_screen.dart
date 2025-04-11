@@ -54,7 +54,6 @@ class _FieldsScreenState extends State<FieldsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Section des champs déjà acquis
               const Text(
                 'Champs existants :',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -73,29 +72,26 @@ class _FieldsScreenState extends State<FieldsScreen> {
                     return const Text('Aucun champ trouvé.');
                   }
                   return ListView.separated(
-                    separatorBuilder: (_, __) =>
-                        const Divider(color: Colors.grey),
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: userFields.length,
-                    itemBuilder: (context, index) {
-                      final field = userFields[index];
-                      // Pour l'affichage, on peut utiliser l'ID tronqué comme nom (ou adapter si le modèle change)
-                      final fieldName = 'Champ ${field.id.substring(0, 6)}';
-                      return ListTile(
-                        title: Text(fieldName,
-                            style: const TextStyle(color: Color(0xFFE6B17E))),
-                        subtitle: Text('Spécialité : ${field.specialty}',
-                            style: const TextStyle(color: Color(0xFFE6B17E))),
-                      );
-                    },
-                  );
+                      separatorBuilder: (_, __) =>
+                          const Divider(color: Colors.grey),
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: userFields.length,
+                      itemBuilder: (context, index) {
+                        final field = userFields[index];
+                        final fieldName = 'Champ ${index + 1}';
+                        return ListTile(
+                          title: Text(fieldName,
+                              style: const TextStyle(color: Color(0xFFE6B17E))),
+                          subtitle: Text('Spécialité : ${field.specialty}',
+                              style: const TextStyle(color: Color(0xFFE6B17E))),
+                        );
+                      });
                 },
               ),
               const SizedBox(height: 20),
               const Divider(),
               const SizedBox(height: 10),
-              // Section "Acheter un champ"
               const Text(
                 'Acheter un champ (15 DeeVee)',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),

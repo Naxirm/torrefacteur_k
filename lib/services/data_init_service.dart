@@ -64,7 +64,6 @@ class DataInitService {
     final batch = _db.batch();
     final typesRef = _db.collection('coffeeTypes');
 
-    // Vérifier si les données existent déjà
     final snapshot = await typesRef.limit(1).get();
     if (snapshot.docs.isNotEmpty) return;
 

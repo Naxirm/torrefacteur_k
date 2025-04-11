@@ -76,7 +76,7 @@ class CoffeePlant {
 class DriedCoffee {
   final String id;
   final CoffeeType type;
-  final double weight; // en grammes
+  final double weight;
   final String userId;
 
   DriedCoffee({

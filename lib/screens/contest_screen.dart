@@ -28,9 +28,7 @@ class _ContestScreenState extends State<ContestScreen> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          // Vous devez encapsuler le contenu avec une colonne ou un autre widget de type liste
-          crossAxisAlignment:
-              CrossAxisAlignment.start, // Ceci aligne les éléments à gauche
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               'Le Concours du Meilleur Torréfacteur du Monde a lieu chaque heure à la 19ème minute',

@@ -18,7 +18,6 @@ class NotEnoughDeeVeeException implements Exception {
 class FirestoreService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  // User Operations
   Future<void> createUser({
     required String userId,
     required String email,
@@ -51,17 +50,14 @@ class FirestoreService {
 
   Future<List<Field>> getUserFields(String userId) async {
     try {
-      // 1. Récupérer la référence de la ferme de l'utilisateur
       final userDoc = await _db.collection('users').doc(userId).get();
       final farmRef = userDoc['farmId'] as DocumentReference;
 
-      // 2. Récupérer les champs de cette ferme
       final farmDoc = await farmRef.get();
       final fieldRefs = (farmDoc['fields'] as List<dynamic>)
           .map((e) => e as DocumentReference)
           .toList();
 
-      // 3. Charger les données de chaque champ
       final fields = await Future.wait(
         fieldRefs.map((ref) async {
           final fieldDoc = await ref.get();
@@ -75,7 +71,6 @@ class FirestoreService {
     }
   }
 
-  // fonction pour ajouter un champ dans la ferme de l'utilisateur
   Future<void> addFieldToFarm(String userId, String specialty) async {
     const fieldCost = 15;
 
@@ -324,7 +319,7 @@ class FirestoreService {
     });
 
     await _db.collection('users').doc(userId).update({
-      'deeVee': FieldValue.increment(typeDoc['cost']),
+      'deeVee': FieldValue.increment(typeDoc['cost'] * 2),
     });
 
     await plantRef.delete();
@@ -399,5 +394,13 @@ class FirestoreService {
     await _db.collection('users').doc(userId).update({
       'deeVee': FieldValue.increment(-weight),
     });
+  }
+
+  Stream<AppUser> streamUser(String userId) {
+    return _db
+        .collection('users')
+        .doc(userId)
+        .snapshots()
+        .map((doc) => AppUser.fromFirestore(doc));
   }
 }
