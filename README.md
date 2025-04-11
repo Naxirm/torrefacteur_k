@@ -27,14 +27,12 @@ Lancez un émulateur ou utilisez votre mobile en mode dev pour pouvoir lancer l'
 Lancez l'application:
 - `flutter run`
 
-## Structure du projet
-
-lib/
-├── assets/              # Fichiers d'assets (images, logos...)
-├── model/               # Modèles de données (utilisateur, champ, café, assemblage)
-├── screens/             # Différents écrans de l'app (connexion, page d'accueil, écran de récolte...)
-├── services/            # Services (Firestore, authentification, initialisation de certaines données comme les type de kafé)
-
 ## Maquettes du projet
 
 [Lien vers les maquettes du projet](maquettes.pdf)
+
+## Fonctionnalités du projet
+- Connexion / Inscription
+- Plantation des différentes graines de kafé et sélection du champ sur lequel planter (chaque champ a une spécificité, rendementx2, temps/2 ou neutre)
+- Récolte des grains plantés (avec décompte de temps et malus appliqué sur le rendement en fonction du temps écoulé)
+- Quand un grain est récolté, il rapport autant de 
