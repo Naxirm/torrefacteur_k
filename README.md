@@ -6,6 +6,9 @@
   <img src="lib/assets/torrefacteur_logo.png" alt="logo_torrefacteur" title="logo_torrefacteur" width="400" height="400" />
 </div>
 
+## Sujet d'examen
+[Lien vers le sujet d'examen](sujet.pdf)
+
 ## Prérequis
 
 - Flutter SDK
